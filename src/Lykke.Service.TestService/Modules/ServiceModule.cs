@@ -1,9 +1,11 @@
 ﻿using Autofac;
 using JetBrains.Annotations;
+using Lykke.Common.MsSql;
 using Lykke.Sdk;
 using Lykke.Sdk.Health;
 using Lykke.Service.TestService.Domain.Services;
 using Lykke.Service.TestService.DomainServices;
+using Lykke.Service.TestService.MsSqlRepositories;
 using Lykke.Service.TestService.Services;
 using Lykke.Service.TestService.Settings;
 using Lykke.SettingsReader;
@@ -14,6 +16,7 @@ namespace Lykke.Service.TestService.Modules
     public class ServiceModule : Module
     {
         private readonly IReloadingManager<AppSettings> _appSettings;
+        private readonly string _connectionString;
 
         public ServiceModule(IReloadingManager<AppSettings> appSettings)
         {
@@ -41,6 +44,11 @@ namespace Lykke.Service.TestService.Modules
             builder.RegisterType<HelloLogic>()
                 .As<IHelloLogic>()
                 .SingleInstance();
+            
+            builder.RegisterMsSql(
+                _connectionString,
+                connString => new MyTestDbContext(connString, false),
+                dbConn => new MyTestDbContext(dbConn));
         }
     }
 }

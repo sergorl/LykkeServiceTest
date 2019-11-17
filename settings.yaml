@@ -9,7 +9,7 @@ TestServiceService:
   Rabbit:
     Subscribers:
       ConnectionString:
-        settings-key: Sub-ConnectionString
+        settings-key: TestService-RabbitMqConnectionString
         types:
           - RabbitMq
   Name:
