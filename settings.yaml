@@ -1,0 +1,28 @@
+TestServiceService:
+  Db:
+    LogsConnString:
+      settings-key: TestServiceService-LogsConnString
+      types:
+        - AzureTableStorage
+    SqlDbConnString:
+      settings-key: TestServiceService-SqlDbConnString
+  Rabbit:
+    Subscribers:
+      ConnectionString:
+        settings-key: Sub-ConnectionString
+        types:
+          - RabbitMq
+  Name:
+    settings-key: TestServiceService-Name
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+
