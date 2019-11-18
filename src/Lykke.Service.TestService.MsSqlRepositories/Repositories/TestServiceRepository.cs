@@ -10,9 +10,9 @@ namespace Lykke.Service.TestService.MsSqlRepositories.Repositories
 {
     public class TestServiceRepository : ITestServiceRepository
     {
-        private readonly IDbContextFactory<TestServiceContext> _contextFactory;
+        private readonly IDbContextFactory<MyTestDbContext> _contextFactory;
 
-        public TestServiceRepository(IDbContextFactory<TestServiceContext> contextFactory)
+        public TestServiceRepository(IDbContextFactory<MyTestDbContext> contextFactory)
         {
             _contextFactory = contextFactory;
         }

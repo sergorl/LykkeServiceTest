@@ -8,7 +8,7 @@ namespace Lykke.Service.TestService.MsSqlRepositories
 {
     public class MyTestDbContext : MsSqlContext
     {
-        private const string Schema = "";
+        private const string Schema = "foo";
 
         public DbSet<TranscationCoins> AgentRegister { get; set; }
 
