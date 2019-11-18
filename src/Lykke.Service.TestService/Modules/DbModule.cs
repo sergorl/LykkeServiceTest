@@ -25,10 +25,10 @@ namespace Lykke.Service.TestService.Modules
                 .As<ITestServiceRepository>()
                 .SingleInstance();
 
-//            builder.RegisterMsSql(
-//                _connectionString,
-//                connString => new TestServiceContext(connString, false),
-//                dbConn => new TestServiceContext(dbConn));
+            builder.RegisterMsSql(
+                _connectionString,
+                connString => new MyTestDbContext(connString, false), 
+                dbConn => new MyTestDbContext(dbConn));
         }
     }
 }
